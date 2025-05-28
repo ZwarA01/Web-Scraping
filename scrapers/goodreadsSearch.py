@@ -44,4 +44,4 @@ def goodreadsSearch(headers, title, author=''):
     else:
         cleanRating = None
         
-    return cleanRating
+    return cleanRating # just need rating for now
