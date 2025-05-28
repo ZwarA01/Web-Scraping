@@ -15,11 +15,11 @@ api_key = os.getenv("NYT_BOOKS_API_KEY")
 url = f"https://api.nytimes.com/svc/books/v3/lists/overview.json?api-key={api_key}"
 response = requests.get(url)
 
-data = response.json()
+data = response.json() # api info in json
 
 for bestseller_list in data['results']['lists']:
+  if bestseller_list['list_name'] in ['Combined Print & E-Book Fiction', 'Combined Print & E-Book Nonfiction']:
     print(f"\n📚 {bestseller_list['list_name']}")
-    
     for book in bestseller_list['books']:
         title = book['title']
         author = book['author']
